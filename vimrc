@@ -17,32 +17,28 @@ set softtabstop=4
 set shiftwidth=4
 set colorcolumn=80
 set autoindent
+
 " Enable folding
+" - with the spacebar
 set foldmethod=indent
 set foldlevel=99
 set foldnestmax=3
-
-" ctags
-set tags=./tags,./TAGS,tags;~,TAGS;~
-
-let g:syntastic_mode_map = {"mode": "passive"}
-
-
-" Enable folding with the spacebar
-nnoremap <A-F8> :TlistToggle<CR>
-let Tlist_Exit_OnlyWindow = 1 
-
-" Enable folding with the spacebar
 nnoremap <space> za
+
+" ====================
+" misc
+" ====================
 " switch between split
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" custom file extension
 autocmd BufNewFile,BufRead *.cocci set syntax=cocci
 autocmd BufNewFile,BufRead *.dox set syntax=doxygen
 
+" diff setting
 set diffexpr=MyDiff()
 function MyDiff()
   let opt = '-a --binary '
@@ -73,10 +69,25 @@ function MyDiff()
   endif
 endfunction
 
-" cscope
+
+" ====================
+" custom command
+" ====================
+ab dox python ../Tool/doxygen/comment_gen.py --html <cword> %
+ab ex Explore **/
+
+" ====================
+" ctags: indexing entries
+"   - run with "ctags -R" in root directory
+" ====================
+set tags=./tags,./TAGS,tags;~,TAGS;~
+
+" ====================
+" cscope: searching projects with better indexing?
+"   - run with "cscope -Rbqk" in root directory
+" ====================
 set cscopetag
 set csto=0
-
 if filereadable("cscope.out")
    cs add cscope.out   
 elseif $CSCOPE_DB != ""
@@ -93,16 +104,35 @@ nmap zf :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap zi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap zd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-
-" custom command
-ab dox python ../Tool/doxygen/comment_gen.py --html <cword> %
-ab ex Explore **/
-
-" pathogen
-execute pathogen#infect()
-
-" NERDTree
+" ====================
+" NERDTree: show folder-based directory
+" ====================
 nnoremap <A-F9> :NERDTreeToggle<CR>
 
-" SrcExplToggle
+" ====================
+" SrcExpl: show source definitions
+"   - should be used with ctags
+" ====================
 nnoremap <A-F7> :SrcExplToggle<CR>
+
+" ====================
+" taglist: show tags in current buffer
+"   - should be used with ctags
+" ====================
+nnoremap <A-F8> :TlistToggle<CR>
+" exit vim if only taglist windows
+let Tlist_Exit_OnlyWindow = 1 
+
+" ====================
+" syntastic: run checker
+" ====================
+" disable syntastic by default
+let g:syntastic_mode_map = {"mode": "passive"}
+
+" ====================
+" pathogen: manage vim bundles
+"   - create "bundle" folder in ~/.vim
+"   - put separate folder for each plugin
+" ====================
+execute pathogen#infect()
+
