@@ -83,6 +83,11 @@ endfunction
 nnoremap <A-`> :call DocSearch()<CR>
 
 " ====================
+" highlight current word
+" ====================
+nnoremap <S-F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
+" ====================
 " ctags: indexing entries
 "   - run with "ctags -R" in root directory
 " ====================
