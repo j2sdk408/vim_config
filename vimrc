@@ -73,8 +73,14 @@ endfunction
 " ====================
 " custom command
 " ====================
-ab dox python ../Tool/doxygen/comment_gen.py --html <cword> %
-ab ex Explore **/
+" run with ":!" to start execution
+ab dox python ../Tool/doxygen/doc_search.py <cword> %
+
+function DocSearch()
+ ! python ../Tool/doxygen/doc_search.py <cword> %
+endfunction
+
+nnoremap <A-`> :call DocSearch()<CR>
 
 " ====================
 " ctags: indexing entries
@@ -105,23 +111,31 @@ nmap zi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap zd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " ====================
-" NERDTree: show folder-based directory
+" nerdtree: show folder-based directory
 " ====================
+" toggle hotkey = Alt-F9
 nnoremap <A-F9> :NERDTreeToggle<CR>
+" show in right
+let g:NERDTreeWinPos = "right"
 
 " ====================
-" SrcExpl: show source definitions
+" srcexpl: show source definitions
 "   - should be used with ctags
 " ====================
+" toggle hotkey = Alt-F7
 nnoremap <A-F7> :SrcExplToggle<CR>
 
 " ====================
 " taglist: show tags in current buffer
 "   - should be used with ctags
 " ====================
+" toggle hotkey = Alt-F8
 nnoremap <A-F8> :TlistToggle<CR>
 " exit vim if only taglist windows
 let Tlist_Exit_OnlyWindow = 1 
+
+" show in right
+" let Tlist_Use_Right_Window   = 1
 
 " ====================
 " syntastic: run checker
