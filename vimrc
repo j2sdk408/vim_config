@@ -35,6 +35,9 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
+" mark trailing whitespaces
+call matchadd("Error", "  *$")
+
 " switch between split
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
