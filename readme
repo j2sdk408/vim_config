@@ -1,0 +1,18 @@
+externam command:
+
+    ctags
+
+    cscope
+
+
+plug-ins:
+
+    nerdtree
+
+    SrcExpl
+
+    taghighlight
+
+    vim-misc
+
+    taglist

@@ -182,6 +182,21 @@ let Tlist_Exit_OnlyWindow = 1
 let g:syntastic_mode_map = {"mode": "passive"}
 
 " ====================
+" taghighlight color setting
+"   - run with ":UpdateTypesFile"
+" ====================
+hi CTagsGlobalVariable guifg=#80a0ff
+hi CTagsFunction guifg=green
+hi CTagsDefinedName guifg=orange1
+hi hi CTagsGlobalVariable ctermfg=5
+hi CTagsEnumerationValue term=bold guifg=white
+
+" get highlight group for cursor word
+" map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+"\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+"\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" ====================
 " pathogen: manage vim bundles
 "   - create "bundle" folder in ~/.vim
 "   - put separate folder for each plugin
