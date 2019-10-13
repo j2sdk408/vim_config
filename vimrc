@@ -85,7 +85,33 @@ nnoremap <A-`> :call DocSearch()<CR>
 " ====================
 " highlight current word
 " ====================
-nnoremap <S-F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+let g:current_cword = ""
+
+function CwordToggle()
+    if (g:current_cword == "")
+        let g:current_cword = expand("<cword>")
+        let @/ = g:current_cword
+        call matchadd("IncSearch", g:current_cword)
+    else
+        let new_cword = expand("<cword>")
+
+        if (g:current_cword != new_cword)
+            call clearmatches()
+
+            let g:current_cword = new_cword
+            let @/ = g:current_cword
+            call matchadd("IncSearch", g:current_cword)
+        else
+            let g:current_cword = ""
+            call clearmatches()
+            let @/ = ""
+        endif
+
+    endif
+endfunction
+
+"nnoremap <S-F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+nnoremap <S-F8> :call CwordToggle()<CR>
 
 " ====================
 " ctags: indexing entries
