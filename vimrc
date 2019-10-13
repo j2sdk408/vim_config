@@ -193,11 +193,14 @@ hi CTagsFunction guifg=green
 hi CTagsDefinedName guifg=orange1
 hi hi CTagsGlobalVariable ctermfg=5
 hi CTagsEnumerationValue term=bold guifg=white
+hi CTagsMember term=bold guifg=white
+hi CCommentL guifg=gray48
+hi CComment guifg=gray48
 
 " get highlight group for cursor word
-" map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-"\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-"\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " ====================
 " pathogen: manage vim bundles
