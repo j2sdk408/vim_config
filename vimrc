@@ -36,7 +36,7 @@ if has("autocmd")
 endif
 
 " mark trailing whitespaces
-call matchadd("Error", "  *$")
+"call matchadd("Error", "  *$")
 
 " switch between split
 nnoremap <C-J> <C-W><C-J>
@@ -188,10 +188,9 @@ let g:syntastic_mode_map = {"mode": "passive"}
 " taghighlight color setting
 "   - run with ":UpdateTypesFile"
 " ====================
-hi CTagsGlobalVariable guifg=#80a0ff
+hi CTagsGlobalVariable guifg=SlateBlue1
 hi CTagsFunction guifg=green
 hi CTagsDefinedName guifg=orange1
-hi hi CTagsGlobalVariable ctermfg=5
 hi CTagsEnumerationValue term=bold guifg=white
 hi CTagsMember term=bold guifg=white
 hi CCommentL guifg=gray48
