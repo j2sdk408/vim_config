@@ -11,6 +11,7 @@ set nobackup
 set noundofile
 set autoread
 set hlsearch
+set incsearch
 
 " python
 set softtabstop=4
