@@ -1,3 +1,13 @@
+windows setting:
+1. ~/.vim       --> C:/Users/<user name>/vimfiles
+2. ~/.vimrc     --> C:/Users/<user name>/_vimrc
+3. separate OS-specific settings by
+    if has("unix")
+        ...
+    else
+        ...
+    endif
+
 externam command:
 
     ctags

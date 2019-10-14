@@ -1,17 +1,34 @@
-" source $VIMRUNTIME/vimrc_example.vim
-" source $VIMRUNTIME/mswin.vim
 behave mswin
-source /usr/share/vim/vim80/mswin.vim
+
+" OS specific settings
+if has("unix")
+    source /usr/share/vim/vim80/mswin.vim
+    set guifont=Monospace\ 16
+else
+    source $VIMRUNTIME/vimrc_example.vim
+    source $VIMRUNTIME/mswin.vim
+
+    " set lang to utf-8
+    set guifont=Consolas:h12:cANSI:qDRAFT
+    let $LANG="zh_TW.UTF-8"
+    set langmenu=zh_tw.utf-8
+    set encoding=utf-8
+
+    "reload menu with UTF-8 encoding
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+endif    
+
 set nu
 colorscheme torte
 set tabstop=4
 set expandtab
-set guifont=Monospace\ 16
 set nobackup
 set noundofile
 set autoread
 set hlsearch
 set incsearch
+set formatoptions=
 
 " load plugin by file type
 filetype plugin on
