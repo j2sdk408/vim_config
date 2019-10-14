@@ -128,7 +128,7 @@ else
     nnoremap <C-S-p> :call TortoiseDiffFile()<CR>
 
     function! TortoiseDiffProject()
-        !start python ../Tool/custom/si_cmd.py diff_project --file %
+        !start python ../Tool/custom/si_cmd.py diff_project
     endfunction
     nnoremap <C-S-d> :call TortoiseDiffProject()<CR>
 
