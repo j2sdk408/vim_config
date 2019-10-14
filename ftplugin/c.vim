@@ -44,6 +44,8 @@ ab c51 ! python ../Tool/auto_link/uv2/uv2build.py --file % --skip-pch
 " ====================
 set cscopetag
 set csto=0
+
+set nocscopeverbose 
 if filereadable("cscope.out")
    cs add cscope.out   
 elseif $CSCOPE_DB != ""
@@ -51,14 +53,31 @@ elseif $CSCOPE_DB != ""
 endif
 set cscopeverbose
 
+
+" find usage + definition
 nmap zs :cs find s <C-R>=expand("<cword>")<CR><CR>
+
+" fine definition
 nmap zg :cs find g <C-R>=expand("<cword>")<CR><CR>
+
+" find usagee
 nmap zc :cs find c <C-R>=expand("<cword>")<CR><CR>
+
+" find string
 nmap zt :cs find t <C-R>=expand("<cword>")<CR><CR>
+
+" egrep?
 nmap ze :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap zf :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap zi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+
+" fine name used by cword
 nmap zd :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" find file
+nmap zf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+
+" find include
+nmap zi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+
 
 " ====================
 " taghighlight color setting
