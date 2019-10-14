@@ -4,7 +4,7 @@
 " run with ":!" to start execution
 ab dox python ../Tool/doxygen/doc_search.py <cword> %
 
-function DocSearch()
+function! DocSearch()
  ! python ../Tool/doxygen/doc_search.py <cword> %
 endfunction
 
@@ -37,13 +37,25 @@ nmap zd :cs find d <C-R>=expand("<cword>")<CR><CR>
 " taghighlight color setting
 "   - run with ":UpdateTypesFile"
 " ====================
-hi CTagsGlobalVariable guifg=SlateBlue1
+hi CTagsGlobalVariable guifg=#8080FF
 hi CTagsFunction guifg=green
-hi CTagsDefinedName guifg=orange1
+hi CTagsDefinedName guifg=#FF8000
 hi CTagsEnumerationValue term=bold guifg=white
 hi CTagsMember term=bold guifg=white
+hi CTagsType term=bold guifg=cyan
 hi CCommentL guifg=gray48
 hi CComment guifg=gray48
+hi cRepeat guifg=red
+hi cPreCondit guifg=red
+hi cPreConditMatch guifg=red
+hi cConditional guifg=red
+hi cLabel guifg=red
+hi cStructure guifg=red
+hi cStatement guifg=red
+hi cNumber guifg=red
+hi cFloat guifg=red
+hi cIncluded guifg=yellow
+hi cString guifg=yellow
 
 " get highlight group for cursor word
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

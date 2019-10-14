@@ -9,7 +9,8 @@ else
     source $VIMRUNTIME/mswin.vim
 
     " set lang to utf-8
-    set guifont=Consolas:h12:cANSI:qDRAFT
+    "set guifont=Consolas:h12:cANSI:qDRAFT
+    set guifont=Courier_New:h18:cANSI:qDRAFT
     let $LANG="zh_TW.UTF-8"
     set langmenu=zh_tw.utf-8
     set encoding=utf-8
@@ -104,7 +105,7 @@ endfunction
 " ====================
 let g:current_cword = ""
 
-function CwordToggle()
+function! CwordToggle()
     if (g:current_cword == "")
         let g:current_cword = expand("<cword>")
         let @/ = g:current_cword
@@ -158,7 +159,7 @@ nnoremap <A-F7> :SrcExplToggle<CR>
 " toggle hotkey = Alt-F8
 nnoremap <A-F8> :TlistToggle<CR>
 " exit vim if only taglist windows
-let Tlist_Exit_OnlyWindow = 1 
+let Tlist_Exit_OnlyWindow = 1
 
 " show in right
 " let Tlist_Use_Right_Window   = 1
