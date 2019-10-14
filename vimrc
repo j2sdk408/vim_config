@@ -55,6 +55,11 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
+" set python path
+if isdirectory("../Tool")
+    let $PYTHONPATH = "../Tool"
+endif
+
 " mark trailing whitespaces
 "call matchadd("Error", "  *$")
 
