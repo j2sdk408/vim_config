@@ -17,7 +17,7 @@ else
     "reload menu with UTF-8 encoding
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
-endif    
+endif
 
 set nu
 colorscheme torte
