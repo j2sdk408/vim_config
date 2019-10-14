@@ -100,6 +100,18 @@ function MyDiff()
 endfunction
 
 " ====================
+" bind RB gui tool
+" ====================
+
+function! RbGui()
+    if has("unix")
+        ! python ../Tool/rb/rbgui.py --root ..
+    else
+        !start python ../Tool/rb/rbgui.py --root ..
+    endif
+endfunction
+
+" ====================
 " bind repository commands
 " ====================
 if has("unix")
@@ -156,6 +168,12 @@ endfunction
 
 "nnoremap <S-F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 nnoremap <S-F8> :call CwordToggle()<CR>
+
+
+" get highlight group for cursor word
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " ====================
 " ctags: indexing entries
