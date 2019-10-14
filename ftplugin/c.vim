@@ -2,13 +2,38 @@
 " custom command
 " ====================
 " run with ":!" to start execution
-ab dox python ../Tool/doxygen/doc_search.py <cword> %
+"ab dox python ../Tool/doxygen/doc_search.py <cword> %
 
-function! DocSearch()
- ! python ../Tool/doxygen/doc_search.py <cword> %
+" search for document
+function! DoxLookup()
+    if has("unix")
+        ! python ../Tool/doxygen/doc_search.py <cword> %
+    else
+        !start python ../Tool/doxygen/doc_search.py <cword> %
+    endif
 endfunction
 
-nnoremap <A-`> :call DocSearch()<CR>
+" search for register
+function! RegisterLookup()
+    if has("unix")
+        ! python ../Tool/db/reg_lookup.py <cword> --target-file %
+    else
+        !start python ../Tool/db/reg_lookup.py <cword> --target-file %
+    endif
+endfunction
+
+nnoremap <A-`> :call RegisterLookup()<CR>
+
+" search for call tree
+function! CallTreeLookup()
+    if has("unix")
+        ! python ../Tool/call_graph/graph_gen.py <cword> %
+    else
+        !start python ../Tool/call_graph/graph_gen.py <cword> %
+    endif
+endfunction
+
+nnoremap <A-'> :call CallTreeLookup()<CR>
 
 
 " ====================
