@@ -1,4 +1,4 @@
-windows setting:
+# windows setting:
 1. ~/.vim       --> C:/Users/<user name>/vimfiles
 2. ~/.vimrc     --> C:/Users/<user name>/_vimrc
 3. separate OS-specific settings by
@@ -15,23 +15,18 @@ windows setting:
     d. create key under (c): "c:\Program Files (x86)\vim\run_vim.bat" "%1"
     e. put run_vim.bat to related folder
 
-externam command:
+# externam command
 
-    ctags
+## ctags
 
-    cscope
+## cscope
     For windows, 
     https://code.google.com/archive/p/cscope-win32/
 
+# plug-ins
 
-plug-ins:
-
-    nerdtree
-
-    SrcExpl
-
-    taghighlight
-
-    vim-misc
-
-    taglist
+* nerdtree
+* SrcExpl
+* taghighlight
+* vim-misc
+* taglist
