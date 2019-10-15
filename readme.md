@@ -20,10 +20,9 @@
 # externam command
 
 ## ctags
-
+* For windows, put ctags and other program uncer vim folder so that no modification for $PATH is required.
 ## cscope
-    For windows, 
-    https://code.google.com/archive/p/cscope-win32/
+* For windows, use cscope-win32: https://code.google.com/archive/p/cscope-win32/
 
 # plug-ins
 
