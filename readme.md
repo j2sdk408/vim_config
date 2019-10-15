@@ -1,7 +1,7 @@
 # windows setting:
 * related directory and files
-** ~/.vim --> C:/Users/<user name>/vimfiles
-** ~/.vimrc --> C:/Users/<user name>/_vimrc
+    * ~/.vim --> C:/Users/<user name>/vimfiles
+    * ~/.vimrc --> C:/Users/<user name>/_vimrc
 * separate OS-specific settings by
 ```    
     if has("unix")
