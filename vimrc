@@ -55,11 +55,22 @@ nnoremap <space> za
 hi Pmenu guibg=gray20 guifg=white
 hi PmenuSel guifg=gray20 guibg=white
 
+" ====================
 " vim diff
+" ====================
+" smaller font for vimdiff
+if &diff
+    if has("unix")
+        set guifont=Monospace\ 14
+    else
+        set guifont=Courier_New:h14:cANSI:qDRAFT
+    endif
+endif
+
 hi DiffText guifg=black
-hi DiffAdd guifg=black guibg=green4
-hi DiffDelete guifg=black guibg=red4
-hi DiffChange guifg=black guibg=yellow4
+hi DiffAdd gui=bold term=bold guifg=black guibg=green4
+hi DiffDelete gui=bold term=bold guifg=black guibg=red4
+hi DiffChange gui=bold term=bold guifg=black guibg=yellow4
 
 " ====================
 " misc
