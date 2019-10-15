@@ -20,6 +20,8 @@ externam command:
     ctags
 
     cscope
+    For windows, 
+    https://code.google.com/archive/p/cscope-win32/
 
 
 plug-ins:
