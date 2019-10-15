@@ -51,9 +51,15 @@ nnoremap <space> za
 " ====================
 " color setting
 " ====================
+" completion menu
 hi Pmenu guibg=gray20 guifg=white
 hi PmenuSel guifg=gray20 guibg=white
+
+" vim diff
 hi DiffText guifg=black
+hi DiffAdd guifg=black guibg=green4
+hi DiffDelete guifg=black guibg=red4
+hi DiffChange guifg=black guibg=yellow4
 
 " ====================
 " misc

@@ -91,9 +91,9 @@ endif
 hi CTagsGlobalVariable guifg=#8080FF
 hi CTagsFunction guifg=green
 hi CTagsDefinedName guifg=#FF8000
-hi CTagsEnumerationValue term=bold guifg=white
-hi CTagsMember term=bold guifg=white
-hi CTagsType term=bold guifg=cyan
+hi CTagsEnumerationValue gui=bold term=bold guifg=white
+hi CTagsMember gui=bold term=bold guifg=white
+hi CTagsType gui=bold term=bold guifg=cyan
 hi CCommentL guifg=gray48
 hi CComment guifg=gray48
 hi cRepeat guifg=red
