@@ -36,48 +36,53 @@ endfunction
 nnoremap <A-'> :call CallTreeLookup()<CR>
 
 " build current file
-ab c51 ! python ../Tool/auto_link/uv2/uv2build.py --file % --skip-pch 
+ab c51 ! python ../Tool/auto_link/uv2/uv2build.py --file % --skip-pch
 
 " ====================
 " cscope: searching projects with better indexing?
 "   - run with "cscope -Rbqk" in root directory
 " ====================
-set cscopetag
-set csto=0
+if has("cscope")
+    " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+    set cscopetag
 
-set nocscopeverbose 
-if filereadable("cscope.out")
-   cs add cscope.out   
-elseif $CSCOPE_DB != ""
-    cs add $CSCOPE_DB
+    " check cscope for definition of a symbol before checking ctags: set to 1
+    " if you want the reverse search order.
+    set csto=0
+
+    " load cscope database
+    set nocscopeverbose
+    if filereadable("cscope.out")
+       cs add cscope.out
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set cscopeverbose
+
+    "   's'   symbol: find all references to the token under cursor
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+
+    "   'g'   global: find global definition(s) of the token under cursor
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+
+    "   'c'   calls:  find all calls to the function name under cursor
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+
+    "   't'   text:   find all instances of the text under cursor
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+
+    "   'e'   egrep:  egrep search for the word under cursor
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+
+    "   'd'   called: find functions that function under cursor calls
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+    "   'f'   file:   open the filename under cursor
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+
+    "   'i'   includes: find files that include the filename under cursor
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 endif
-set cscopeverbose
-
-
-" find usage + definition
-nmap zs :cs find s <C-R>=expand("<cword>")<CR><CR>
-
-" fine definition
-nmap zg :cs find g <C-R>=expand("<cword>")<CR><CR>
-
-" find usagee
-nmap zc :cs find c <C-R>=expand("<cword>")<CR><CR>
-
-" find string
-nmap zt :cs find t <C-R>=expand("<cword>")<CR><CR>
-
-" egrep?
-nmap ze :cs find e <C-R>=expand("<cword>")<CR><CR>
-
-" fine name used by cword
-nmap zd :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-" find file
-nmap zf :cs find f <C-R>=expand("<cfile>")<CR><CR>
-
-" find include
-nmap zi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-
 
 " ====================
 " taghighlight color setting
