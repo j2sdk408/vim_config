@@ -48,6 +48,12 @@ nnoremap <space> za
 
 
 " ====================
+" color setting
+" ====================
+hi Pmenu guibg=gray20 guifg=white
+hi PmenuSel guifg=gray20 guibg=white
+
+" ====================
 " misc
 " ====================
 " load previous position
@@ -107,7 +113,6 @@ endfunction
 " ====================
 " bind RB gui tool
 " ====================
-
 function! RbGui()
     if has("unix")
         ! python ../Tool/rb/rbgui.py --root ..
