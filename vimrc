@@ -21,6 +21,7 @@ else
 endif
 
 set nu
+set hidden
 colorscheme torte
 set tabstop=4
 set expandtab
