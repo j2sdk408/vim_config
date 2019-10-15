@@ -53,6 +53,7 @@ nnoremap <space> za
 " ====================
 hi Pmenu guibg=gray20 guifg=white
 hi PmenuSel guifg=gray20 guibg=white
+hi DiffText guifg=black
 
 " ====================
 " misc
