@@ -10,7 +10,7 @@ else
 
     " set lang to utf-8
     "set guifont=Consolas:h12:cANSI:qDRAFT
-    set guifont=Courier_New:h18:cANSI:qDRAFT
+    set guifont=Courier_New:h16:cANSI:qDRAFT
     let $LANG="zh_TW.UTF-8"
     set langmenu=zh_tw.utf-8
     set encoding=utf-8
@@ -205,10 +205,25 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " ====================
+" change font size
+" ====================
+nnoremap <C-Up> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(submatch(0)+1)',
+ \ '')<CR>
+nnoremap <C-Down> :silent! let &guifont = substitute(
+ \ &guifont,
+ \ ':h\zs\d\+',
+ \ '\=eval(submatch(0)-1)',
+ \ '')<CR>
+
+" ====================
 " ctags: indexing entries
 "   - run with "ctags -R" in root directory
 " ====================
 set tags=./tags,./TAGS,tags;~,TAGS;~
+nnoremap <F7> :ta 
 
 " ====================
 " nerdtree: show folder-based directory

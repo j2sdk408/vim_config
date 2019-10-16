@@ -59,6 +59,8 @@ if has("cscope")
     endif
     set cscopeverbose
 
+    nnoremap <F9> :cs find f 
+
     "   's'   symbol: find all references to the token under cursor
     nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 
