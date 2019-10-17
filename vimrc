@@ -224,6 +224,7 @@ nnoremap <C-Down> :silent! let &guifont = substitute(
 " ====================
 set tags=./tags,./TAGS,tags;~,TAGS;~
 nnoremap <F7> :ta 
+nnoremap <C-LeftMouse>: ta <cword><CR>
 
 function! CtagUpdate()
     if has("unix")
