@@ -49,11 +49,12 @@ nnoremap <space> za
 
 
 " ====================
-" color setting
+" completion setting
 " ====================
-" completion menu
 hi Pmenu guibg=gray20 guifg=white
 hi PmenuSel guifg=gray20 guibg=white
+
+set completeopt=longest,menuone
 
 " ====================
 " vim diff
