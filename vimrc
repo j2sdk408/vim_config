@@ -172,7 +172,7 @@ endif
 " ====================
 let g:current_cword = ""
 
-function! CwordToggle()
+function! _WordToggle()
     if (g:current_cword == "")
         let g:current_cword = expand("<cword>")
         let @/ = g:current_cword
@@ -196,7 +196,7 @@ function! CwordToggle()
 endfunction
 
 "nnoremap <S-F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-nnoremap <S-F8> :call CwordToggle()<CR>
+nnoremap <S-F8> :call _WordToggle()<CR>
 
 
 " get highlight group for cursor word
@@ -224,6 +224,14 @@ nnoremap <C-Down> :silent! let &guifont = substitute(
 " ====================
 set tags=./tags,./TAGS,tags;~,TAGS;~
 nnoremap <F7> :ta 
+
+function! CtagUpdate()
+    if has("unix")
+        ! ctags -R --extra=+f
+    else
+        !start ctags -R --extra=+f
+    endif
+endfunction
 
 " ====================
 " nerdtree: show folder-based directory
