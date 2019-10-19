@@ -27,7 +27,13 @@
 # plug-ins
 
 * nerdtree
+    - file navigator
 * SrcExpl
+    - show original source
 * taghighlight
-* vim-misc
+    - show tag highlight
 * taglist
+    - show tags in current file
+* gutentags
+    - update ctags result
+* vim-misc

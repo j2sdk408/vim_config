@@ -235,6 +235,10 @@ function! CtagUpdate()
     endif
 endfunction
 
+" add ctags flag for gutenflags
+let g:gutentags_ctags_extra_args = ['--extra=+f']
+
+
 " ====================
 " nerdtree: show folder-based directory
 " ====================
@@ -261,6 +265,9 @@ let Tlist_Exit_OnlyWindow = 1
 
 " show in right
 " let Tlist_Use_Right_Window   = 1
+
+" show tags in one file only
+let Tlist_Show_One_File = 1
 
 " ====================
 " syntastic: run checker
