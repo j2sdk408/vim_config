@@ -35,5 +35,10 @@
 * taglist
     - show tags in current file
 * gutentags
+* gutentags_plus
     - update ctags result
 * vim-misc
+
+* gtags-cscope
+* gtags
+    - GNU global

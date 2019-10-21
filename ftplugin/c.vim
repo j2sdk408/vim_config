@@ -47,48 +47,25 @@ ab c51 ! python ../Tool/auto_link/uv2/uv2build.py --file % --skip-pch
 " ====================
 " cscope: searching projects with better indexing?
 "   - run with "cscope -Rbqk" in root directory
+"   - replaced with gtags
 " ====================
-if has("cscope")
-    " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
-    set cscopetag
+" use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+set cscopetag
 
-    " check cscope for definition of a symbol before checking ctags: set to 1
-    " if you want the reverse search order.
-    set csto=0
+" use gnu global as cscope
+set cscopeprg="gtags-cscope"
+let g:GtagsCscope_Auto_Map = 1
+let g:GtagsCscope_Auto_Load = 1
 
-    " load cscope database
-    set nocscopeverbose
-    if filereadable("cscope.out")
-       cs add cscope.out
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-    set cscopeverbose
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
 
-    "   's'   symbol: find all references to the token under cursor
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+"   's'   symbol: find all references to the token under cursor
+nnoremap <C-\> :exec("Gtags -r ".expand("<cword>"))<cr>
 
-    "   'g'   global: find global definition(s) of the token under cursor
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+ab gg Gtags -g 
 
-    "   'c'   calls:  find all calls to the function name under cursor
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
 
-    "   't'   text:   find all instances of the text under cursor
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-
-    "   'e'   egrep:  egrep search for the word under cursor
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-
-    "   'd'   called: find functions that function under cursor calls
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-    "   'f'   file:   open the filename under cursor
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-
-    "   'i'   includes: find files that include the filename under cursor
-    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-endif
 
 " ====================
 " taghighlight color setting
