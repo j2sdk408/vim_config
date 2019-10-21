@@ -31,6 +31,7 @@ set autoread
 set hlsearch
 set incsearch
 set formatoptions=
+set wildmenu
 
 " load plugin by file type
 filetype plugin on
@@ -44,6 +45,7 @@ set autoindent
 " - with the spacebar
 nnoremap <space> za
 hi Folded guifg=black
+set foldlevel=99
 
 " ====================
 " completion setting
