@@ -42,11 +42,8 @@ set autoindent
 
 " Enable folding
 " - with the spacebar
-set foldmethod=indent
-set foldlevel=99
-set foldnestmax=3
 nnoremap <space> za
-
+hi Folded guifg=black
 
 " ====================
 " completion setting

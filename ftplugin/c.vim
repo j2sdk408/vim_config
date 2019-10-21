@@ -1,4 +1,10 @@
 " ====================
+" fold
+" ====================
+set foldmethod=marker
+set foldmarker=#if,#endif
+
+" ====================
 " custom command
 " ====================
 " run with ":!" to start execution
