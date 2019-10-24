@@ -237,6 +237,7 @@ endfunction
 " add ctags flag for gutenflags
 let g:gutentags_ctags_extra_args = ['--extra=+f']
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
+nnoremap <C-F7> :Gtags -g 
 
 
 " ====================
