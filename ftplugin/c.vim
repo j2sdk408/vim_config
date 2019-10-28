@@ -42,13 +42,11 @@ endfunction
 nnoremap <A-'> :call CallTreeLookup()<CR>
 
 " build current file
-ab c51 ! python ../Tool/auto_link/uv2/uv2build.py auto all --skip-pch --file %
+ab c51 ! python ../Tool/auto_link/uv2/uv2build.py --skip-pch --file % auto all
 
-" ====================
-" cscope: searching projects with better indexing?
-"   - run with "cscope -Rbqk" in root directory
-"   - replaced with gtags
-" ====================
+nnoremap <C-F7> :Gtags -g 
+
+" gun global
 " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
 set cscopetag
 
@@ -64,8 +62,6 @@ map <C-p> :cp<CR>
 nnoremap <C-\> :exec("Gtags -r ".expand("<cword>"))<cr>
 
 ab gg Gtags -g 
-
-
 
 " ====================
 " taghighlight color setting
