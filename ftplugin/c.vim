@@ -42,7 +42,7 @@ endfunction
 nnoremap <A-'> :call CallTreeLookup()<CR>
 
 " build current file
-ab c51 ! python ../Tool/auto_link/uv2/uv2build.py --file % --skip-pch
+ab c51 ! python ../Tool/auto_link/uv2/uv2build.py auto all --skip-pch --file %
 
 " ====================
 " cscope: searching projects with better indexing?
