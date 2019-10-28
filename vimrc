@@ -3,7 +3,7 @@ behave mswin
 " OS specific settings
 if has("unix")
     source /usr/share/vim/vim80/mswin.vim
-    set guifont=Monospace\ 16
+    set guifont=Courier\ 16
 else
     source $VIMRUNTIME/vimrc_example.vim
     source $VIMRUNTIME/mswin.vim
