@@ -1,3 +1,3 @@
 #!/bin/sh
-cp vimrc ~/.vimrc
-cp ftplugin/* ~/.vim/ftplugin
+cp -i vimrc ~/.vimrc
+cp -i ftplugin/* ~/.vim/ftplugin
