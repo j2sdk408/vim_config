@@ -94,6 +94,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" navigate in quickfix
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+
 " custom file extension
 autocmd BufNewFile,BufRead *.cocci set syntax=cocci
 autocmd BufNewFile,BufRead *.dox set syntax=doxygen

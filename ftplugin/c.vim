@@ -55,9 +55,6 @@ set cscopeprg="gtags-cscope"
 let g:GtagsCscope_Auto_Map = 1
 let g:GtagsCscope_Auto_Load = 1
 
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
-
 "   's'   symbol: find all references to the token under cursor
 nnoremap <C-\> :exec("Gtags -r ".expand("<cword>"))<cr>
 
