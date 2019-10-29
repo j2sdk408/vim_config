@@ -153,22 +153,22 @@ else
     function! TortoiseShowLog()
         !start python ../Tool/custom/si_cmd.py log_project --file %
     endfunction
-    nnoremap <C-S-g> :call TortoiseShowLog()<CR>
+    nnoremap t<C-g> :call TortoiseShowLog()<CR>
 
     function! TortoiseDiffFile()
         !start python ../Tool/custom/si_cmd.py diff --file %
     endfunction
-    nnoremap <C-S-p> :call TortoiseDiffFile()<CR>
+    nnoremap t<C-p> :call TortoiseDiffFile()<CR>
 
     function! TortoiseDiffProject()
         !start python ../Tool/custom/si_cmd.py diff_project
     endfunction
-    nnoremap <C-S-d> :call TortoiseDiffProject()<CR>
+    nnoremap t<C-d> :call TortoiseDiffProject()<CR>
 
     function! TortoiseBlame()
         !start python ../Tool/custom/si_cmd.py blame --file %
     endfunction
-    nnoremap <C-S-b> :call TortoiseBlame()<CR>
+    nnoremap t<C-b> :call TortoiseBlame()<CR>
 endif
 
 " ====================
