@@ -7,4 +7,4 @@ set foldnestmax=3
 " ====================
 " make
 " ====================
-set makeprg=python ../Tool/checker/bin/check_tool_modified.py --format VIM
+set makeprg=python\ ../Tool/checker/bin/check_tool_modified.py\ --format\ VIM

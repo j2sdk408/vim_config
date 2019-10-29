@@ -7,7 +7,7 @@ set foldmarker=#if,#endif
 " ====================
 " make
 " ====================
-set makeprg=python ../Tool/checker/bin/check_modified.py --format VIM --rules none --include X01
+set makeprg=python\ ../Tool/checker/bin/check_modified.py\ --format\ VIM\ --rules\ none\ --include\ X01
 
 " ====================
 " custom command
