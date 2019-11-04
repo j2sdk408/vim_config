@@ -235,14 +235,14 @@ nnoremap <C-LeftMouse>: ta <cword><CR>
 
 function! CtagUpdate()
     if has("unix")
-        ! ctags -R --extra=+f
+        ! ctags -R --extra=+f --exclude=Output
     else
-        !start ctags -R --extra=+f
+        !start ctags -R --extra=+f --exclude=Output
     endif
 endfunction
 
 " add ctags flag for gutenflags
-let g:gutentags_ctags_extra_args = ['--extra=+f']
+let g:gutentags_ctags_extra_args = ['--extra=+f', '--exclude=Output']
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 nnoremap <C-F7> :Gtags -g 
 
