@@ -85,6 +85,9 @@ if isdirectory("../Tool")
     let $PYTHONPATH = "../Tool"
 endif
 
+" ignore output folder
+set wildignore=Output/**
+
 " mark trailing whitespaces
 "call matchadd("Error", "  *$")
 
@@ -151,12 +154,12 @@ if has("unix")
     " do nothing
 else
     function! TortoiseShowLog()
-        !start python ../Tool/custom/si_cmd.py log_project --file %
+        !start python ../Tool/custom/si_cmd.py log_project --file "%"
     endfunction
     nnoremap t<C-g> :call TortoiseShowLog()<CR>
 
     function! TortoiseDiffFile()
-        !start python ../Tool/custom/si_cmd.py diff --file %
+        !start python ../Tool/custom/si_cmd.py diff --file "%"
     endfunction
     nnoremap t<C-p> :call TortoiseDiffFile()<CR>
 
@@ -166,7 +169,7 @@ else
     nnoremap t<C-d> :call TortoiseDiffProject()<CR>
 
     function! TortoiseBlame()
-        !start python ../Tool/custom/si_cmd.py blame --file %
+        !start python ../Tool/custom/si_cmd.py blame --file "%"
     endfunction
     nnoremap t<C-b> :call TortoiseBlame()<CR>
 endif
