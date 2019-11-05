@@ -34,6 +34,9 @@
     - show tag highlight
 * taglist
     - show tags in current file
+    - modify the following settings
+        - forced_python_variant:python
+        - use_existing_tagfile:True
 * gutentags
 * gutentags_plus
     - update ctags result
