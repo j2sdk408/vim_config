@@ -69,24 +69,24 @@ ab gg Gtags -g
 " taghighlight color setting
 "   - run with ":UpdateTypesFile"
 " ====================
-hi CTagsGlobalVariable guifg=#8080FF
-hi CTagsFunction guifg=green
-hi CTagsDefinedName guifg=#FF8000
-hi CTagsEnumerationValue gui=bold term=bold guifg=white
-hi CTagsMember gui=bold term=bold guifg=white
-hi CTagsType gui=bold term=bold guifg=cyan
-hi CCommentL guifg=gray48
-hi CComment guifg=gray48
-hi cRepeat guifg=red
-hi cPreCondit guifg=red
-hi cPreConditMatch guifg=red
-hi cConditional guifg=red
-hi cLabel guifg=red
-hi cStructure guifg=red
-hi cStatement guifg=red
-hi cNumber guifg=red
-hi cFloat guifg=red
-hi cIncluded guifg=yellow
-hi cString guifg=yellow
-hi cDefine guifg=yellow
+hi CTagsGlobalVariable guifg=#8080FF ctermfg=63
+hi CTagsFunction guifg=green ctermfg=green
+hi CTagsDefinedName guifg=#FF8000 ctermfg=208
+hi CTagsEnumerationValue gui=bold term=bold guifg=white ctermfg=white
+hi CTagsMember gui=bold term=bold guifg=white ctermfg=white
+hi CTagsType gui=bold term=bold guifg=cyan ctermfg=cyan
+hi CCommentL guifg=gray48 ctermfg=241
+hi CComment guifg=gray48 ctermfg=241
+hi cRepeat guifg=red ctermfg=red
+hi cPreCondit guifg=red ctermfg=red
+hi cPreConditMatch guifg=red ctermfg=red
+hi cConditional guifg=red ctermfg=red
+hi cLabel guifg=red ctermfg=red
+hi cStructure guifg=red ctermfg=red
+hi cStatement guifg=red ctermfg=red
+hi cNumber guifg=red ctermfg=red
+hi cFloat guifg=red ctermfg=red
+hi cIncluded guifg=yellow ctermfg=yellow
+hi cString guifg=yellow ctermfg=yellow
+hi cDefine guifg=yellow ctermfg=yellow
 
