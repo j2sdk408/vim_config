@@ -32,11 +32,11 @@
     - show original source
 * taghighlight
     - show tag highlight
-* taglist
-    - show tags in current file
     - modify the following settings
         - forced_python_variant:python
         - use_existing_tagfile:True
+* tagbar
+    - show tags in current file
 * gutentags
 * gutentags_plus
     - update ctags result
@@ -45,3 +45,7 @@
 * gtags-cscope
 * gtags
     - GNU global
+
+* fugitive
+
+* taglist(deprecated)

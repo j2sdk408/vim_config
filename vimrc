@@ -267,15 +267,24 @@ nnoremap <A-F7> :SrcExplToggle<CR>
 "   - should be used with ctags
 " ====================
 " toggle hotkey = Alt-F8
-nnoremap <A-F8> :TlistToggle<CR>
+"nnoremap <A-F8> :TlistToggle<CR>
 " exit vim if only taglist windows
-let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Exit_OnlyWindow = 1
 
-" show in right
+" show in left
 " let Tlist_Use_Right_Window   = 1
 
 " show tags in one file only
-let Tlist_Show_One_File = 1
+"let Tlist_Show_One_File = 1
+
+" ====================
+" tagbar: show tags in current buffer
+"   - should be used with ctags
+" ====================
+nnoremap <A-F8> :TagbarToggle<CR>
+
+" show in left
+let g:tagbar_left = 1
 
 " ====================
 " syntastic: run checker
