@@ -7,29 +7,29 @@ set foldmarker=#if,#endif
 " ====================
 " make
 " ====================
-set makeprg=python\ ../Tool/checker/bin/check_modified.py\ --format\ VIM\ --rules\ none\ --include\ X01
+set makeprg=python\ -m\ firmware_checker.bin.check_modified\ --format\ VIM\ --rules\ none\ --include\ X01
 
 " ====================
 " custom command
 " ====================
 " run with ":!" to start execution
-"ab dox python ../Tool/doxygen/doc_search.py <cword> %
+"ab dox python -m doxygen.doc_search <cword> %
 
 " search for document
 function! DoxLookup()
     if has("unix")
-        ! python ../Tool/doxygen/doc_search.py <cword> %
+        ! python -m doxygen.doc_search <cword> %
     else
-        !start python ../Tool/doxygen/doc_search.py <cword> %
+        !start python -m doxygen.doc_search <cword> %
     endif
 endfunction
 
 " search for register
 function! RegisterLookup()
     if has("unix")
-        ! python ../Tool/db/reg_lookup.py <cword> --target-file %
+        ! python -m editor_tool.reg_lookup <cword> --target-file %
     else
-        !start python ../Tool/db/reg_lookup.py <cword> --target-file %
+        !start python editor_tool.reg_lookup <cword> --target-file %
     endif
 endfunction
 
@@ -38,16 +38,16 @@ nnoremap <A-`> :call RegisterLookup()<CR>
 " search for call tree
 function! CallTreeLookup()
     if has("unix")
-        ! python ../Tool/call_graph/graph_gen.py <cword> %
+        ! python -m editor_tool.graph_gen <cword> %
     else
-        !start python ../Tool/call_graph/graph_gen.py <cword> %
+        !start python -m editor_tool.graph_gen <cword> %
     endif
 endfunction
 
 nnoremap <A-'> :call CallTreeLookup()<CR>
 
 " build current file
-ab c51 ! python ../Tool/auto_link/uv2/uv2build.py --skip-pch --file % auto all
+ab c51 ! python -m build_tool.auto_link.uv2.uv2build --skip-pch --file % auto all
 
 nnoremap <C-F7> :Gtags -g 
 
