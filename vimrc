@@ -80,11 +80,6 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
-" set python path
-if isdirectory("../Tool")
-    let $PYTHONPATH = "../Tool"
-endif
-
 " ignore output folder
 set wildignore=Output/**
 
@@ -141,9 +136,9 @@ endfunction
 " ====================
 function! RbGui()
     if has("unix")
-        ! python ../Tool/rb/rbgui.py --root ..
+        ! python -m repository_tool.rb.rbgui
     else
-        !start python ../Tool/rb/rbgui.py --root ..
+        !start python -m repository_tool.rb.rbgui
     endif
 endfunction
 
@@ -154,22 +149,22 @@ if has("unix")
     " do nothing
 else
     function! TortoiseShowLog()
-        !start python ../Tool/custom/si_cmd.py log_project --file "%"
+        !start python -m editor_tool.repo_cmd log_project --file "%"
     endfunction
     nnoremap t<C-g> :call TortoiseShowLog()<CR>
 
     function! TortoiseDiffFile()
-        !start python ../Tool/custom/si_cmd.py diff --file "%"
+        !start python -m editor_tool.repo_cmd diff --file "%"
     endfunction
     nnoremap t<C-p> :call TortoiseDiffFile()<CR>
 
     function! TortoiseDiffProject()
-        !start python ../Tool/custom/si_cmd.py diff_project
+        !start python -m editor_tool.repo_cmd diff_project
     endfunction
     nnoremap t<C-d> :call TortoiseDiffProject()<CR>
 
     function! TortoiseBlame()
-        !start python ../Tool/custom/si_cmd.py blame --file "%"
+        !start python -m editor_tool.repo_cmd blame --file "%"
     endfunction
     nnoremap t<C-b> :call TortoiseBlame()<CR>
 endif
@@ -245,6 +240,8 @@ endfunction
 let g:gutentags_ctags_extra_args = ['--extra=+f', '--exclude=Output']
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 nnoremap <C-F7> :Gtags -g 
+let g:gutentags_define_advanced_commands = 1
+let g:gutentags_enabled = 0
 
 
 " ====================
