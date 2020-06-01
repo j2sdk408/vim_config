@@ -29,7 +29,7 @@ function! RegisterLookup()
     if has("unix")
         ! python -m editor_tool.reg_lookup <cword> --target-file %
     else
-        !start python editor_tool.reg_lookup <cword> --target-file %
+        !start python -m editor_tool.reg_lookup <cword> --target-file %
     endif
 endfunction
 
