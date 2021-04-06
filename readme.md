@@ -17,14 +17,20 @@
     * create key under (c): "c:\Program Files (x86)\vim\run_vim.bat" "%1"
     * put run_vim.bat to related folder
 
-# externam command
+# external command
 
 ## ctags
-* For windows, put ctags and other program uncer vim folder so that no modification for $PATH is required.
+* For windows, put ctags and other program under vim folder so that no modification for $PATH is required.
 ## cscope
 * For windows, use cscope-win32: https://code.google.com/archive/p/cscope-win32/
 
 # plug-ins
+
+* use pathogen in handle vim plugins. See https://github.com/tpope/vim-pathogen
+* create ~/.vim/autoload/pathogen.vim
+* put plug-in under ~/.vim/bundles folder
+
+## useful plug-ins
 
 * nerdtree
     - file navigator
